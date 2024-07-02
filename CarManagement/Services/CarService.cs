@@ -20,21 +20,21 @@ namespace CarManagement.Services
             var car = await _context
                 .Cars
                 .Where(c => c.Id == id)
-                 .Include(c => c.TransmissionType)
-                             .Include(c => c.Brand)
-                             .Include(c => c.Color)
-                             .Include(c => c.Model)
-                             .Select(c => new CarDto()
-                             {
-                                 Name = c.Name,
-                                 BrandId = c.BrandID,
-                                 ModelId = c.ModelId,
-                                 ColorId = c.ColorId,
-                                 TransmissionTypeId = c.TransmissionTypeId,
-                                 Mileage = c.Mileage,
-                                 CarAvailabilityId = c.CarAvailabilityId,
-                             })
-                             .FirstAsync();
+                .Include(c => c.TransmissionType)
+                .Include(c => c.Brand)
+                .Include(c => c.Color)
+                .Include(c => c.Model)
+                .Select(c => new CarDto()
+                {
+                    Name = c.Name,
+                    BrandId = c.BrandID,
+                    ModelId = c.ModelId,
+                    ColorId = c.ColorId,
+                    TransmissionTypeId = c.TransmissionTypeId,
+                    Mileage = c.Mileage,
+                    CarAvailabilityId = c.CarAvailabilityId,
+                })
+                .FirstAsync();
 
             return car;
         }

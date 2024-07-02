@@ -23,6 +23,10 @@ namespace CarManagement.Controllers
         [HttpPost("getCarsByFilter")]
         public async Task<List<CarDto>> GetCarsByFilter(CarRequest request) => await _carService.GetCarsByFilter(request);
 
+
+        [HttpPost("GetCarDetailById")]
+        public async Task<CarDto> GetCarDetailById(int id) => await _carService.GetCarDetailById(id);
+
         [HttpPost("DeactivateCar"), Authorize(Roles = "Admin")]
         public async Task DeactivateCar(int id) => await _carService.DeactivateCar(id);
 

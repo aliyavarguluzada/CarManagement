@@ -20,11 +20,11 @@ namespace CarManagement.Controllers
         [HttpGet("getCars")]
         public async Task<List<CarDto>> GetCars() => await _carService.GetCars();
 
-        [HttpPost("getCarsByFilter")]
+        [HttpGet("getCarsByFilter")]
         public async Task<List<CarDto>> GetCarsByFilter(CarRequest request) => await _carService.GetCarsByFilter(request);
 
 
-        [HttpPost("GetCarDetailById")]
+        [HttpGet("GetCarDetailById")]
         public async Task<CarDto> GetCarDetailById(int id) => await _carService.GetCarDetailById(id);
 
         [HttpPut("DeactivateCar"), Authorize(Roles = "Admin")]

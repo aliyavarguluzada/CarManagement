@@ -12,10 +12,8 @@ namespace CarManagement.Controllers
     {
         private readonly ICarService _carService;
 
-        public CarContoller(ICarService carService)
-        {
-            _carService = carService;
-        }
+        public CarContoller(ICarService carService) => _carService = carService;
+
 
         [HttpGet("All")]
         public async Task<List<CarDto>> GetCars() => await _carService.GetCars();
